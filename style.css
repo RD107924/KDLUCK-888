@@ -236,28 +236,46 @@ a:hover {
   color: #666;
 }
 
-/* Video Section */
+/* Video Section (已更新為豎屏顯示) */
 .video-section {
   background-color: #f4f7fa;
 }
 
 .video-wrapper {
-  max-width: 800px;
-  margin: 0 auto 30px auto;
+  /* 將容器寬度設定為較小的固定值，模擬豎屏的寬度 */
+  width: 375px; /* 例如 iPhone X 的寬度，你可以調整這個數值 */
+  max-width: 90%; /* 確保在小螢幕上不會超出 */
+
+  /* 使用 padding-top 實現響應式高度比例，這裡設定為 9:16 的比例 (高/寬 = 16/9 ≈ 1.777) */
+  padding-top: 177.77%;
+
+  position: relative; /* 為了讓內部的元素可以絕對定位 */
+
+  margin: 0 auto 30px auto; /* 保持水平居中和下方間距 */
   background-color: #ffffff;
   border-radius: 10px;
-  overflow: hidden;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  text-align: center; /* 讓嵌入的影片居中 */
+  overflow: hidden; /* 確保內容不會溢出 */
 }
 
-.video-wrapper iframe,
+/* 調整 TikTok 嵌入內容，使其填滿 .video-wrapper */
 .video-wrapper blockquote {
-  width: 100%;
-  height: 450px; /* 調整影片高度 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important; /* 確保嵌入的內容完全填滿容器 */
+  height: 100% !important; /* 確保嵌入的內容完全填滿容器 */
+  margin: 0 !important; /* 移除 TikTok 嵌入預設的邊距 */
+  display: flex; /* 使用 flexbox 居中 */
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+}
+
+/* 確保內部的 iframe 也填滿 */
+.video-wrapper iframe {
+  width: 100% !important;
+  height: 100% !important;
   border: none;
-  display: block; /* 移除 iframe 預設的 inline-block 邊距 */
-  margin: 0 auto;
 }
 
 .video-description {
@@ -281,7 +299,7 @@ a:hover {
   text-align: left;
 }
 
-/* 表單組件樣式 */
+/* 表單組件樣式（已在 HTML 內嵌樣式中定義，此處為補充或覆蓋） */
 .form-group {
   margin-bottom: 20px;
 }
@@ -301,76 +319,7 @@ a:hover {
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 1em;
-  box-sizing: border-box; /* 確保 padding 和 border 包含在寬度內 */
-}
-.form-group textarea {
-  resize: vertical; /* 允許垂直調整大小 */
-  min-height: 80px;
-}
-.checkbox-group,
-.radio-group {
-  margin-bottom: 20px;
-  border: 1px solid #eee;
-  padding: 15px;
-  border-radius: 8px;
-  background-color: #fcfcfc;
-}
-.checkbox-group h4,
-.radio-group h4 {
-  margin-top: 0;
-  margin-bottom: 15px;
-  color: #007bff;
-  font-size: 1.1em;
-}
-.checkbox-group label,
-.radio-group label {
-  display: block; /* 讓每個選項獨佔一行 */
-  margin-bottom: 10px;
-  font-weight: normal;
-  cursor: pointer; /* 讓鼠標變成手型 */
-}
-.checkbox-group input[type="checkbox"],
-.radio-group input[type="radio"] {
-  margin-right: 10px;
-  vertical-align: middle;
-  transform: scale(1.1); /* 讓複選框/單選框稍微大一點 */
-}
-
-/* 內嵌於表單的課程條款樣式 */
-.registration-section .terms-content-inline {
-  background-color: #f9f9f9; /* 淺灰背景 */
-  border: 1px solid #e0e0e0; /* 輕微邊框 */
-  padding: 30px;
-  margin-top: 30px; /* 與表單內容間隔 */
-  border-radius: 8px; /* 圓角 */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* 輕微陰影 */
-  max-width: 700px; /* 限制寬度，提高可讀性 */
-  margin-left: auto;
-  margin-right: auto;
-  text-align: left; /* 條款內容左對齊 */
-}
-
-.registration-section .terms-content-inline h4 {
-  text-align: center;
-  color: #007bff;
-  margin-bottom: 25px;
-  font-size: 1.6em;
-}
-
-.registration-section .terms-content-inline h5 {
-  font-size: 1.2em;
-  color: #333;
-  margin-top: 25px;
-  margin-bottom: 10px;
-  border-bottom: 1px dashed #ccc; /* 虛線分隔 */
-  padding-bottom: 5px;
-}
-
-.registration-section .terms-content-inline p {
-  font-size: 0.95em;
-  line-height: 1.7;
-  color: #555;
-  margin-bottom: 10px;
+  box-sizing: border-box;
 }
 
 /* 頁尾 */
@@ -451,9 +400,10 @@ a:hover {
     grid-template-columns: 1fr; /* 單列佈局 */
   }
 
-  .video-wrapper iframe,
-  .video-wrapper blockquote {
-    height: 300px; /* 手機上縮小影片高度 */
+  /* RWD 調整：在小螢幕上，影片容器可以更小 */
+  .video-wrapper {
+    width: 95%; /* 在更小的螢幕上，容器可以更寬一點 */
+    padding-top: 160%; /* 可以稍微調整高度比例，讓它在小手機上更適中 */
   }
 
   .custom-form-wrapper {
