@@ -110,7 +110,9 @@
         <nav>
           <ul class="nav-links">
             <li><a href="#about">關於我們</a></li>
+            <li><a href="#speakers">講師介紹</a></li>
             <li><a href="#video">影片介紹</a></li>
+            <li><a href="#course-outline">課程大綱</a></li>
             <li><a href="#registration">立即報名</a></li>
           </ul>
         </nav>
@@ -152,6 +154,28 @@
             <h4>多元整合，全面佈局</h4>
             <p>
               從自媒體引流思維到電商營運實戰，我們的課程結合了兩大領域的精華。無論是新手入門或想突破瓶頸，都能在這裡找到全面的解決方案。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="speakers" class="content-section speakers-section">
+      <div class="container">
+        <h3>認識我們的講師</h3>
+        <div class="speaker-profile-grid">
+          <div class="speaker-profile-card">
+            <img src="randy.jpg" alt="講師 Randy" />
+            <h4>Randy</h4>
+            <p>
+              專精物流與跨境電商實務，擁有豐富的實戰經驗，帶領學員掌握集運、海快、空運等關鍵知識，並深入短影音與社群媒體的獲客策略。
+            </p>
+          </div>
+          <div class="speaker-profile-card">
+            <img src="kevin.jpg" alt="講師 凱文哥" />
+            <h4>凱文哥</h4>
+            <p>
+              蝦皮電商大賣家，從零到千萬的電商之路，提供精闢的電商景氣與趨勢分析，並教導學員如何結合短影音與電商，建立獨特的商業模式。
             </p>
           </div>
         </div>
@@ -219,6 +243,33 @@
         <p class="video-description">
           透過影片，您可以更生動地了解我們的內容或服務！
         </p>
+      </div>
+    </section>
+
+    <section id="course-outline" class="content-section course-outline-section">
+      <div class="container">
+        <h3>課程大綱</h3>
+        <div class="outline-grid">
+          <div class="outline-speaker">
+            <h4>RANDY 的課程</h4>
+            <ul>
+              <li>什麼是集運?</li>
+              <li>海快、空運、海運的差別</li>
+              <li>如何操作集運系統</li>
+              <li>短視頻與矩陣</li>
+              <li>社群媒體獲客</li>
+            </ul>
+          </div>
+          <div class="outline-speaker">
+            <h4>凱文哥 的課程</h4>
+            <ul>
+              <li>我能給你建議-從0到8000萬</li>
+              <li>電商景氣與趨勢分析</li>
+              <li>電商流量建構-如何結合短影音與電商</li>
+              <li>你該做什麼-建立自己的商業模式</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -439,9 +490,6 @@
                 學員不得以任何形式（包括但不限於錄音、錄影、截圖、翻拍、轉錄、轉載、轉貼、公開分享、轉售或用於其他商業用途）保存、散布、轉傳或提供予第三人，亦不得將社群內任何交流內容、其他學員分享資訊、教學討論內容對外揭露、引用或散播。
               </p>
               <p>
-                課程期間與結束後，學員皆須遵守保密義務，不得將課程內容、教材資料、社群交流資訊、其他學員分享內容外流，亦不得改編後作為自行開課、出版或其他營利性用途。
-              </p>
-              <p>
                 違反上述保密條款者，主辦單位有權立即取消學員資格，並依法追究相關法律責任及損害賠償。
               </p>
               <p>
@@ -470,10 +518,27 @@
       document.addEventListener("DOMContentLoaded", function () {
         const form = document.getElementById("registrationForm");
         const formMessage = document.getElementById("formMessage");
-        // **你的 Apps Script Web App URL，已為你替換**
         const webAppUrl =
           "https://script.google.com/macros/s/AKfycbyUezpBQop_ugaX1f7ecYwRqW2098E-92-AaZCstowXRJcBRUvQN0BqIAjJ44qjFyRy/exec";
 
+        // 漢堡選單的 JavaScript 邏輯
+        const hamburgerMenu = document.querySelector(".hamburger-menu");
+        const navLinks = document.querySelector(".nav-links");
+
+        hamburgerMenu.addEventListener("click", function () {
+          navLinks.classList.toggle("active"); // 切換 'active' class
+        });
+
+        // 當點擊導覽列中的連結時，關閉漢堡選單
+        navLinks.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", function () {
+            if (navLinks.classList.contains("active")) {
+              navLinks.classList.remove("active");
+            }
+          });
+        });
+
+        // 表單提交邏輯
         form.addEventListener("submit", function (e) {
           e.preventDefault(); // 阻止表單預設提交行為
 
@@ -483,16 +548,13 @@
           const formData = new FormData(form);
           const data = {};
           for (let [key, value] of formData.entries()) {
-            // 對於多選框，FormData 會將所有選中的值都納入
-            // 我們需要的是每個選項是否被勾選 (是/否)
             if (key.startsWith("bottleneck_") || key.startsWith("interest_")) {
-              data[key] = value; // 如果有值就是 '是'
+              data[key] = value;
             } else {
               data[key] = value;
             }
           }
 
-          // 處理複選框未選中的情況，確保 Apps Script 接收到 '否'
           const allBottlenecks = [
             "營業額難以提高",
             "利潤不足",
@@ -506,7 +568,7 @@
           allBottlenecks.forEach((problem) => {
             const key = "bottleneck_" + problem.replace(/[\s\/&]/g, "");
             if (!data[key]) {
-              data[key] = ""; // 如果前端沒有傳這個 key，則設置為空字串，Apps Script 會處理成 '否'
+              data[key] = "";
             }
           });
 
@@ -524,21 +586,19 @@
             }
           });
 
-          // 使用 Fetch API 發送 POST 請求到 Apps Script Web App
           fetch(webAppUrl, {
             method: "POST",
             headers: {
               "Content-Type": "application/x-www-form-urlencoded",
             },
             body: new URLSearchParams(data).toString(),
-            mode: "cors", // 確保 Apps Script Web App 部署時允許 "所有人" 訪問，這樣前端才能正確接收 JSON 回應
+            mode: "cors",
           })
             .then((response) => {
-              // 檢查回應是否成功，並嘗試解析 JSON
               if (!response.ok) {
                 return response.text().then((text) => {
                   throw new Error(text);
-                }); // 嘗試獲取更多錯誤訊息
+                });
               }
               return response.json();
             })
@@ -546,7 +606,7 @@
               if (result.success) {
                 formMessage.textContent = result.message;
                 formMessage.style.color = "green";
-                form.reset(); // 清空表單
+                form.reset();
               } else {
                 formMessage.textContent = result.message;
                 formMessage.style.color = "red";

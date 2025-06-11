@@ -236,42 +236,85 @@ a:hover {
   color: #666;
 }
 
-/* Video Section (已更新為豎屏顯示) */
+/* 講師介紹區塊樣式 (新增的樣式) */
+.speakers-section {
+  background-color: #f4f7fa; /* 淺灰色背景 */
+}
+
+.speaker-profile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  margin-top: 30px;
+  justify-content: center; /* 水平居中 */
+}
+
+.speaker-profile-card {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  text-align: center; /* 內容居中 */
+  transition: transform 0.3s ease;
+  max-width: 400px; /* 限制卡片最大寬度 */
+  justify-self: center; /* 在 grid 中單獨居中每個卡片 */
+}
+
+.speaker-profile-card:hover {
+  transform: translateY(-8px);
+}
+
+.speaker-profile-card img {
+  width: 180px; /* 圖片大小 */
+  height: 180px; /* 圖片大小 */
+  border-radius: 50%; /* 圓形圖片 */
+  object-fit: cover; /* 確保圖片填充容器並保持比例 */
+  margin-bottom: 20px;
+  border: 5px solid #007bff; /* 邊框顏色 */
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.3); /* 邊框陰影 */
+}
+
+.speaker-profile-card h4 {
+  color: #2c3e50;
+  font-size: 1.8em;
+  margin-bottom: 10px;
+}
+
+.speaker-profile-card p {
+  color: #555;
+  font-size: 1.05em;
+  line-height: 1.7;
+}
+
+/* Video Section */
 .video-section {
-  background-color: #f4f7fa;
+  background-color: #ffffff; /* 調整背景色，與講師介紹區塊錯開 */
 }
 
 .video-wrapper {
-  /* 將容器寬度設定為較小的固定值，模擬豎屏的寬度 */
   width: 375px; /* 例如 iPhone X 的寬度，你可以調整這個數值 */
   max-width: 90%; /* 確保在小螢幕上不會超出 */
-
-  /* 使用 padding-top 實現響應式高度比例，這裡設定為 9:16 的比例 (高/寬 = 16/9 ≈ 1.777) */
   padding-top: 177.77%;
-
-  position: relative; /* 為了讓內部的元素可以絕對定位 */
-
-  margin: 0 auto 30px auto; /* 保持水平居中和下方間距 */
-  background-color: #ffffff;
+  position: relative;
+  margin: 0 auto 30px auto;
+  background-color: #f9f9f9; /* 調整背景色 */
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  overflow: hidden; /* 確保內容不會溢出 */
+  overflow: hidden;
 }
 
-/* 調整 TikTok 嵌入內容，使其填滿 .video-wrapper */
 .video-wrapper blockquote {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100% !important; /* 確保嵌入的內容完全填滿容器 */
-  height: 100% !important; /* 確保嵌入的內容完全填滿容器 */
-  margin: 0 !important; /* 移除 TikTok 嵌入預設的邊距 */
-  display: flex; /* 使用 flexbox 居中 */
-  justify-content: center; /* 水平居中 */
-  align-items: center; /* 垂直居中 */
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* 確保內部的 iframe 也填滿 */
 .video-wrapper iframe {
   width: 100% !important;
   height: 100% !important;
@@ -282,6 +325,62 @@ a:hover {
   font-style: italic;
   color: #777;
   margin-top: 20px;
+}
+
+/* 課程大綱區塊樣式 */
+.course-outline-section {
+  background-color: #f4f7fa; /* 調整背景色，與影片區塊錯開 */
+}
+
+.outline-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+  text-align: left;
+  margin-top: 30px;
+}
+
+.outline-speaker {
+  background-color: #ffffff; /* 調整背景色 */
+  padding: 35px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.outline-speaker:hover {
+  transform: translateY(-5px);
+}
+
+.outline-speaker h4 {
+  color: #007bff;
+  font-size: 1.8em;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.outline-speaker ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.outline-speaker ul li {
+  background-color: #e6f2ff;
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  font-size: 1.05em;
+  color: #444;
+  transition: background-color 0.2s ease;
+}
+
+.outline-speaker ul li:last-child {
+  margin-bottom: 0;
+}
+
+.outline-speaker ul li:hover {
+  background-color: #d1e7ff;
 }
 
 /* Registration Section (表單區塊) */
@@ -314,7 +413,7 @@ a:hover {
 .form-group input[type="tel"],
 .form-group select,
 .form-group textarea {
-  width: 100%; /* 確保寬度佔滿 */
+  width: 100%;
   padding: 12px 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -337,11 +436,11 @@ a:hover {
   padding: 0;
   display: flex;
   justify-content: center;
-  flex-wrap: wrap; /* 換行 */
+  flex-wrap: wrap;
 }
 
 .footer .footer-links li {
-  margin: 0 15px 10px 15px; /* 增加下方間距 */
+  margin: 0 15px 10px 15px;
 }
 
 .footer .footer-links a {
@@ -356,18 +455,18 @@ a:hover {
 /* RWD 調整 */
 @media (max-width: 768px) {
   .navbar .nav-links {
-    display: none; /* 手機版隱藏導覽列 */
+    display: none;
     flex-direction: column;
     width: 100%;
     background-color: #ffffff;
     position: absolute;
-    top: 60px; /* 導覽列高度 */
+    top: 60px;
     left: 0;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
   }
 
   .navbar .nav-links.active {
-    display: flex; /* 點擊時顯示 */
+    display: flex;
   }
 
   .navbar .nav-links li {
@@ -381,7 +480,7 @@ a:hover {
   }
 
   .hamburger-menu {
-    display: flex; /* 手機版顯示 */
+    display: flex;
   }
 
   .hero-content h2 {
@@ -397,13 +496,32 @@ a:hover {
   }
 
   .content-grid {
-    grid-template-columns: 1fr; /* 單列佈局 */
+    grid-template-columns: 1fr;
+  }
+
+  /* 講師介紹 RWD 調整 */
+  .speaker-profile-grid {
+    grid-template-columns: 1fr; /* 手機上單列佈局 */
+    gap: 30px;
+  }
+  .speaker-profile-card {
+    padding: 25px;
+  }
+  .speaker-profile-card img {
+    width: 150px;
+    height: 150px;
   }
 
   /* RWD 調整：在小螢幕上，影片容器可以更小 */
   .video-wrapper {
-    width: 95%; /* 在更小的螢幕上，容器可以更寬一點 */
-    padding-top: 160%; /* 可以稍微調整高度比例，讓它在小手機上更適中 */
+    width: 95%;
+    padding-top: 160%;
+  }
+
+  /* 課程大綱 RWD 調整 */
+  .outline-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
   }
 
   .custom-form-wrapper {
