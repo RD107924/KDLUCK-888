@@ -498,7 +498,10 @@
             </div>
 
             <button type="submit" class="btn primary-btn">提交報名</button>
-            <p id="formMessage" style="margin-top: 15px"></p>
+            <p
+              id="formMessage"
+              style="margin-top: 15px; text-align: center"
+            ></p>
           </form>
         </div>
       </div>
@@ -518,8 +521,21 @@
       document.addEventListener("DOMContentLoaded", function () {
         const form = document.getElementById("registrationForm");
         const formMessage = document.getElementById("formMessage");
+        // 注意：請確保這是你的實際 Apps Script 部署 URL
         const webAppUrl =
           "https://script.google.com/macros/s/AKfycbyUezpBQop_ugaX1f7ecYwRqW2098E-92-AaZCstowXRJcBRUvQN0BqIAjJ44qjFyRy/exec";
+
+        // LINE 加入按鈕的 HTML 程式碼
+        const lineButtonHtml = `
+                <p style="margin-top: 20px; font-size: 1.1em; color: #007bff; font-weight: bold;">
+                    恭喜您報名成功！請點擊下方按鈕加入「凱迪拉課」官方 LINE 帳號，以便後續聯繫與課程通知。
+                </p>
+                <div style="margin-top: 15px;">
+                    <a href="https://lin.ee/G3He7n0" target="_blank" style="display: inline-block;">
+                        <img src="https://scdn.line-apps.com/n/line_add_friends/btn/zh-Hant.png" alt="加入好友" height="42" border="0">
+                    </a>
+                </div>
+            `;
 
         // 漢堡選單的 JavaScript 邏輯
         const hamburgerMenu = document.querySelector(".hamburger-menu");
@@ -542,12 +558,13 @@
         form.addEventListener("submit", function (e) {
           e.preventDefault(); // 阻止表單預設提交行為
 
-          formMessage.textContent = "提交中...";
+          formMessage.innerHTML = "提交中..."; // 使用 innerHTML 清空並顯示文字
           formMessage.style.color = "#007bff";
 
           const formData = new FormData(form);
           const data = {};
           for (let [key, value] of formData.entries()) {
+            // 對於多選框，Apps Script 會自動處理，這裡確保未選中的不會傳送 '是'
             if (key.startsWith("bottleneck_") || key.startsWith("interest_")) {
               data[key] = value;
             } else {
@@ -555,6 +572,7 @@
             }
           }
 
+          // 確保所有複選框的 key 都存在，即使未選中 (值為空字串)
           const allBottlenecks = [
             "營業額難以提高",
             "利潤不足",
@@ -568,7 +586,7 @@
           allBottlenecks.forEach((problem) => {
             const key = "bottleneck_" + problem.replace(/[\s\/&]/g, "");
             if (!data[key]) {
-              data[key] = "";
+              data[key] = ""; // 如果未選中，設置為空字串
             }
           });
 
@@ -582,7 +600,7 @@
           allInterests.forEach((interest) => {
             const key = "interest_" + interest.replace(/[\s\/&]/g, "");
             if (!data[key]) {
-              data[key] = "";
+              data[key] = ""; // 如果未選中，設置為空字串
             }
           });
 
@@ -604,9 +622,16 @@
             })
             .then((result) => {
               if (result.success) {
-                formMessage.textContent = result.message;
-                formMessage.style.color = "green";
-                form.reset();
+                // 報名成功後，清空表單並顯示 LINE 按鈕
+                form.reset(); // 重置表單
+                formMessage.innerHTML = lineButtonHtml; // 顯示 LINE 按鈕及成功訊息
+                formMessage.style.color = "green"; // 這裡的顏色設定可能被 LINE 按鈕的內容覆蓋
+                // 你可以考慮隱藏整個表單，只顯示成功訊息和按鈕
+                form.style.display = "none";
+                document.querySelector(".custom-form-wrapper").innerHTML =
+                  formMessage.innerHTML; // 將內容直接寫入 wrapper
+                document.querySelector(".custom-form-wrapper").style.textAlign =
+                  "center"; // 讓按鈕居中
               } else {
                 formMessage.textContent = result.message;
                 formMessage.style.color = "red";
