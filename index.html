@@ -3,69 +3,157 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>電商實戰訓練營</title>
+    <title>凱迪拉課888自媒體電商課 - 立即報名！</title>
+    <link rel="stylesheet" href="style.css" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <style>
+      /* 這裡可以放一些新的或調整過的樣式 */
+      .form-group {
+        margin-bottom: 20px;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: #333;
+      }
+      .form-group input[type="text"],
+      .form-group input[type="email"],
+      .form-group input[type="tel"],
+      .form-group select,
+      .form-group textarea {
+        width: calc(100% - 20px); /* 考慮 padding */
+        padding: 12px 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1em;
+        box-sizing: border-box; /* 確保 padding 和 border 包含在寬度內 */
+      }
+      .form-group textarea {
+        resize: vertical; /* 允許垂直調整大小 */
+        min-height: 80px;
+      }
+      .checkbox-group,
+      .radio-group {
+        margin-bottom: 20px;
+        border: 1px solid #eee;
+        padding: 15px;
+        border-radius: 8px;
+        background-color: #fcfcfc;
+      }
+      .checkbox-group h4,
+      .radio-group h4 {
+        margin-top: 0;
+        margin-bottom: 15px;
+        color: #007bff;
+        font-size: 1.1em;
+      }
+      .checkbox-group label,
+      .radio-group label {
+        display: block; /* 讓每個選項獨佔一行 */
+        margin-bottom: 10px;
+        font-weight: normal;
+        cursor: pointer; /* 讓鼠標變成手型 */
+      }
+      .checkbox-group input[type="checkbox"],
+      .radio-group input[type="radio"] {
+        margin-right: 10px;
+        vertical-align: middle;
+        transform: scale(1.1); /* 讓複選框/單選框稍微大一點 */
+      }
+
+      /* 內嵌於表單的課程條款樣式 */
+      .registration-section .terms-content-inline {
+        background-color: #f9f9f9; /* 淺灰背景 */
+        border: 1px solid #e0e0e0; /* 輕微邊框 */
+        padding: 30px;
+        margin-top: 30px; /* 與表單內容間隔 */
+        border-radius: 8px; /* 圓角 */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* 輕微陰影 */
+        max-width: 700px; /* 限制寬度，提高可讀性 */
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left; /* 條款內容左對齊 */
+      }
+
+      .registration-section .terms-content-inline h4 {
+        text-align: center;
+        color: #007bff;
+        margin-bottom: 25px;
+        font-size: 1.6em;
+      }
+
+      .registration-section .terms-content-inline h5 {
+        font-size: 1.2em;
+        color: #333;
+        margin-top: 25px;
+        margin-bottom: 10px;
+        border-bottom: 1px dashed #ccc; /* 虛線分隔 */
+        padding-bottom: 5px;
+      }
+
+      .registration-section .terms-content-inline p {
+        font-size: 0.95em;
+        line-height: 1.7;
+        color: #555;
+        margin-bottom: 10px;
+      }
+    </style>
   </head>
   <body>
-    <nav class="navbar">
+    <header class="navbar">
       <div class="container">
-        <h1 class="logo"><a href="#hero">電商實戰訓練營</a></h1>
-        <ul class="nav-links">
-          <li><a href="#about">關於我們</a></li>
-          <li><a href="#speakers">講師介紹</a></li>
-          <li><a href="#video">課程精華</a></li>
-          <li><a href="#outline">課程大綱</a></li>
-          <li class="dropdown">
-            <a href="javascript:void(0)" class="dropbtn">課程資訊 &#9662;</a>
-            <div class="dropdown-content">
-              <a href="#course-info">報名資訊</a>
-              <a href="#registration">立即報名</a>
-              <a href="#" class="disabled">課程教材 (尚未開課)</a>
-              <a href="#" class="disabled">課後問答 (尚未開課)</a>
-            </div>
-          </li>
-        </ul>
-        <button class="hamburger-menu" aria-label="Toggle navigation">
+        <h1 class="logo"><a href="#hero">凱迪拉課</a></h1>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="#about">關於我們</a></li>
+            <li><a href="#speakers">講師介紹</a></li>
+            <li><a href="#video">影片介紹</a></li>
+            <li><a href="#course-outline">課程大綱</a></li>
+            <li><a href="#registration">立即報名</a></li>
+          </ul>
+        </nav>
+        <button class="hamburger-menu" aria-label="選單按鈕">
           <span></span>
           <span></span>
           <span></span>
         </button>
       </div>
-    </nav>
+    </header>
 
     <section id="hero" class="hero-section">
-      <div class="hero-content">
-        <h2>打造你的電商帝國，從這裡開始</h2>
-        <p>專業講師帶你從零到有，掌握電商實戰核心技能！</p>
-        <a href="#registration" class="btn primary-btn">立即報名</a>
+      <div class="container">
+        <div class="hero-content">
+          <h2>自媒體引流+電商</h2>
+          <p>帶你一起獲得免費流量~</p>
+        </div>
       </div>
     </section>
 
     <section id="about" class="content-section about-section">
       <div class="container">
-        <h3>關於我們</h3>
+        <h3>為什麼選擇我們？</h3>
         <div class="content-grid">
           <div class="content-item">
-            <h4>實戰導向</h4>
+            <h4>實戰經驗豐富</h4>
             <p>
-              課程內容專注於實戰案例與操作，讓你學到的知識即學即用，快速應用於電商事業。
+              我們不是紙上談兵的老師，Randy
+              老師專精物流與跨境電商實務，凱文哥則是蝦皮電商的大賣家。從物流到銷售，親身經歷並解決各種挑戰。
             </p>
           </div>
           <div class="content-item">
-            <h4>專業講師</h4>
+            <h4>真正「有結果」的教學</h4>
             <p>
-              我們邀請業界資深電商專家，擁有豐富的成功經驗，為你提供最寶貴的洞見與指導。
+              我們只分享自己驗證過、能帶來實際成效的方法與策略。帶你避開彎路，學習真正能幫助你獲得免費流量、提升業績的實用技巧。
             </p>
           </div>
           <div class="content-item">
-            <h4>完整學習</h4>
+            <h4>多元整合，全面佈局</h4>
             <p>
-              從市場分析、平台操作、行銷策略到物流金流，提供一站式的電商知識體系，助你全面掌握。
+              從自媒體引流思維到電商營運實戰，我們的課程結合了兩大領域的精華。無論是新手入門或想突破瓶頸，都能在這裡找到全面的解決方案。
             </p>
           </div>
         </div>
@@ -74,17 +162,17 @@
 
     <section id="speakers" class="content-section speakers-section">
       <div class="container">
-        <h3>講師介紹</h3>
+        <h3>認識我們的講師</h3>
         <div class="speaker-profile-grid">
           <div class="speaker-profile-card">
-            <img src="randy.jpg" alt="Randy 老師" />
+            <img src="randy.jpg" alt="講師 Randy" />
             <h4>Randy</h4>
             <p>
               專精物流與跨境電商實務，擁有豐富的實戰經驗，帶領學員掌握集運、海快、空運等關鍵知識，並深入短影音與社群媒體的獲客策略。
             </p>
           </div>
           <div class="speaker-profile-card">
-            <img src="kevin.jpg" alt="凱文哥" />
+            <img src="kevin.jpg" alt="講師 凱文哥" />
             <h4>凱文哥</h4>
             <p>
               蝦皮電商大賣家，從零到千萬的電商之路，提供精闢的電商景氣與趨勢分析，並教導學員如何結合短影音與電商，建立獨特的商業模式。
@@ -96,111 +184,90 @@
 
     <section id="video" class="content-section video-section">
       <div class="container">
-        <h3>課程精華預覽</h3>
+        <h3>觀看我們的介紹影片</h3>
         <div class="video-wrapper">
           <blockquote
             class="tiktok-embed"
-            cite="https://www.tiktok.com/@tiktok/video/7036323133649511686"
-            data-video-id="7036323133649511686"
+            cite="https://www.tiktok.com/@randydaigo/video/7514573686436039942"
+            data-video-id="7514573686436039942"
             style="max-width: 605px; min-width: 325px"
           >
             <section>
               <a
                 target="_blank"
-                title="@tiktok"
-                href="https://www.tiktok.com/@tiktok?refer_url=https%3A%2F%2Fwww.your-website.com%2F"
-                >@tiktok</a
+                title="@randydaigo"
+                href="https://www.tiktok.com/@randydaigo?refer=embed"
+                >@randydaigo</a
               >
-              The TikTok team showing off their moves 🕺
+              台南小伙，在大陸的奮鬥日記。
+              <a
+                title="第一手貨源"
+                target="_blank"
+                href="https://www.tiktok.com/tag/%E7%AC%AC%E4%B8%80%E6%89%8B%E8%B2%A8%E6%BA%90?refer=embed"
+                >#第一手貨源</a
+              >
+              <a
+                title="一手貨源"
+                target="_blank"
+                href="https://www.tiktok.com/tag/%E4%B8%80%E6%89%8B%E8%B2%A8%E6%BA%90?refer=embed"
+                >#一手貨源</a
+              >
+              <a
+                title="蝦皮"
+                target="_blank"
+                href="https://www.tiktok.com/tag/%E8%9D%A6%E7%9A%AE?refer=embed"
+                >#蝦皮</a
+              >
+              <a
+                title="集運"
+                target="_blank"
+                href="https://www.tiktok.com/tag/%E9%9B%86%E9%81%8B?refer=embed"
+                >#集運</a
+              >
+              <a
+                title="無貨源跨境電商"
+                target="_blank"
+                href="https://www.tiktok.com/tag/%E7%84%A1%E8%B2%A8%E6%BA%90%E8%B7%A8%E5%A2%83%E9%9B%BB%E5%95%86?refer=embed"
+                >#無貨源跨境電商</a
+              >
               <a
                 target="_blank"
-                title="♬ Original Sound"
-                href="https://www.tiktok.com/music/Original-Sound-7036323133649511686?refer_url=https%3A%2F%2Fwww.your-website.com%2F"
-                >♬ Original Sound</a
+                title="♬ 原聲  - 軟迪- 集運｜海運"
+                href="https://www.tiktok.com/music/%E5%8E%9F%E8%81%B2-%E8%BB%9F%E8%BF%AA-%E9%9B%86%E9%81%8B%EF%BD%9C%E6%B5%B7%E9%81%8B-7514573673290828600?refer=embed"
+                >♬ 原聲  - 軟迪- 集運｜海運</a
               >
             </section>
           </blockquote>
+          <script async src="https://www.tiktok.com/embed.js"></script>
         </div>
-        <p class="video-description">立即觀看課程精彩片段，感受實戰氛圍！</p>
-        <script async src="https://www.tiktok.com/embed.js"></script>
+        <p class="video-description">
+          透過影片，您可以更生動地了解我們的內容或服務！
+        </p>
       </div>
     </section>
 
-    <section id="outline" class="content-section course-outline-section">
+    <section id="course-outline" class="content-section course-outline-section">
       <div class="container">
         <h3>課程大綱</h3>
         <div class="outline-grid">
           <div class="outline-speaker">
-            <h4>Randy - 物流與跨境電商</h4>
+            <h4>RANDY 的課程</h4>
             <ul>
-              <li>第一章：跨境電商市場趨勢分析</li>
-              <li>第二章：全球集運與海快實務操作</li>
-              <li>第三章：跨境金流與稅務處理</li>
-              <li>第四章：短影音內容營銷策略</li>
-              <li>第五章：社群媒體流量變現</li>
+              <li>什麼是集運?</li>
+              <li>海快、空運、海運的差別</li>
+              <li>如何操作集運系統</li>
+              <li>短視頻與矩陣</li>
+              <li>社群媒體獲客</li>
             </ul>
           </div>
           <div class="outline-speaker">
-            <h4>凱文哥 - 蝦皮電商與商業模式</h4>
+            <h4>凱文哥 的課程</h4>
             <ul>
-              <li>第一章：蝦皮電商平台深度解析</li>
-              <li>第二章：選品與供應鏈管理</li>
-              <li>第三章：蝦皮廣告投放與優化</li>
-              <li>第四章：建立個人品牌與商業模式</li>
-              <li>第五章：電商營運數據分析與增長</li>
+              <li>我能給你建議-從0到8000萬</li>
+              <li>電商景氣與趨勢分析</li>
+              <li>電商流量建構-如何結合短影音與電商</li>
+              <li>你該做什麼-建立自己的商業模式</li>
             </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="course-info" class="content-section course-info-section">
-      <div class="container">
-        <h3>課程資訊</h3>
-        <div class="course-details">
-          <div class="course-detail-item">
-            <h4>課程名稱：</h4>
-            <p>電商實戰訓練營</p>
-          </div>
-          <div class="course-detail-item">
-            <h4>授課講師：</h4>
-            <p>Randy & 凱文哥</p>
-          </div>
-          <div class="course-detail-item">
-            <h4>上課方式：</h4>
-            <p>線上課程，提供錄播與直播互動</p>
-          </div>
-          <div class="course-detail-item">
-            <h4>課程費用：</h4>
-            <p><span class="important">新台幣 12,800 元</span></p>
-          </div>
-          <div class="course-detail-item">
-            <h4>優惠方案：</h4>
-            <p>
-              於 6/30 前報名享早鳥優惠，費用
-              <span class="important">新台幣 9,800 元</span>
-            </p>
-          </div>
-          <div class="course-detail-item">
-            <h4>報名截止：</h4>
-            <p>2025 年 7 月 15 日</p>
-          </div>
-          <div class="course-detail-item">
-            <h4>付款方式：</h4>
-            <p>銀行轉帳 / 線上支付</p>
-            <p class="bank-info">銀行：OO銀行 (代碼: 888)</p>
-            <p class="bank-info">帳號：123-456789-00000</p>
-            <p class="bank-info">戶名：電商實戰訓練營籌備處</p>
-          </div>
-          <div class="course-detail-item">
-            <h4>聯絡方式：</h4>
-            <p>Email: info@ecommerce-camp.com</p>
-            <p>Line ID: @ecomcamp</p>
-          </div>
-          <div class="course-detail-item">
-            <p class="important">
-              * 報名後請務必於三日內完成付款，否則名額將不予保留。
-            </p>
           </div>
         </div>
       </div>
@@ -208,40 +275,233 @@
 
     <section id="registration" class="content-section registration-section">
       <div class="container">
-        <h3>立即報名</h3>
+        <h3>立即填寫表單報名！</h3>
         <div class="custom-form-wrapper">
-          <form action="#" method="POST">
+          <form id="registrationForm">
             <div class="form-group">
-              <label for="name">姓名 <span class="red-text">*</span></label>
-              <input type="text" id="name" name="name" required />
+              <label for="fullName"
+                >真實全名：<span style="color: red">*</span></label
+              >
+              <input type="text" id="fullName" name="fullName" required />
             </div>
             <div class="form-group">
+              <label for="phone"
+                >手機號碼：<span style="color: red">*</span></label
+              >
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                required
+                placeholder="例如：0912345678"
+              />
+            </div>
+            <div class="form-group">
+              <label for="lineId"
+                >LINE ID：<span style="color: red">*</span></label
+              >
+              <input type="text" id="lineId" name="lineId" required />
+            </div>
+            <div class="form-group">
+              <label for="industryTitle"
+                >產業別/職稱：<span style="color: red">*</span></label
+              >
+              <input
+                type="text"
+                id="industryTitle"
+                name="industryTitle"
+                required
+                placeholder="例如：電商經營者 / 行銷企劃"
+              />
+            </div>
+
+            <div class="checkbox-group">
+              <h4>目前遇到的瓶頸 (複選)：<span style="color: red">*</span></h4>
+              <label
+                ><input
+                  type="checkbox"
+                  name="bottleneck_營業額難以提高"
+                  value="是"
+                />
+                營業額難以提高</label
+              >
+              <label
+                ><input type="checkbox" name="bottleneck_利潤不足" value="是" />
+                利潤不足</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  name="bottleneck_人員培養困難"
+                  value="是"
+                />
+                人員培養困難</label
+              >
+              <label
+                ><input type="checkbox" name="bottleneck_稅務問題" value="是" />
+                稅務問題</label
+              >
+              <label
+                ><input type="checkbox" name="bottleneck_資金問題" value="是" />
+                資金問題</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  name="bottleneck_自有流量取得困難"
+                  value="是"
+                />
+                自有流量取得困難</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  name="bottleneck_採購進貨相關問題"
+                  value="是"
+                />
+                採購進貨相關問題</label
+              >
+              <label
+                ><input type="checkbox" name="bottleneck_其他" value="是" />
+                其他</label
+              >
+            </div>
+
+            <div class="checkbox-group">
+              <h4>
+                哪個部分最感興趣 (複選)：<span style="color: red">*</span>
+              </h4>
+              <label
+                ><input
+                  type="checkbox"
+                  name="interest_短影音定位及起號"
+                  value="是"
+                />
+                短影音定位及起號</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  name="interest_短影音矩陣切片TK投流"
+                  value="是"
+                />
+                短影音矩陣切片&TK投流</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  name="interest_蝦皮電商經營技巧"
+                  value="是"
+                />
+                蝦皮電商經營技巧</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  name="interest_物流渠道集運代理"
+                  value="是"
+                />
+                物流渠道 集運代理</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  name="interest_大陸電話卡及銀行卡開戶"
+                  value="是"
+                />
+                大陸電話卡及銀行卡開戶</label
+              >
+            </div>
+
+            <div class="form-group">
               <label for="email"
-                >電子郵件 <span class="red-text">*</span></label
+                >Email：<span style="color: red">*</span></label
               >
               <input type="email" id="email" name="email" required />
             </div>
             <div class="form-group">
-              <label for="phone"
-                >聯絡電話 <span class="red-text">*</span></label
-              >
-              <input type="tel" id="phone" name="phone" required />
+              <label for="referrer">介紹人 (沒有請略過)：</label>
+              <input type="text" id="referrer" name="referrer" />
             </div>
             <div class="form-group">
-              <label for="payment-method"
-                >付款方式 <span class="red-text">*</span></label
+              <label for="bankLastFive"
+                >匯款末五碼：<span style="color: red">*</span></label
               >
-              <select id="payment-method" name="payment_method" required>
-                <option value="">請選擇</option>
-                <option value="bank-transfer">銀行轉帳</option>
-                <option value="online-payment">線上支付 (尚未開放)</option>
-              </select>
+              <input
+                type="text"
+                id="bankLastFive"
+                name="bankLastFive"
+                required
+                pattern="[0-9]{5}"
+                title="請輸入五位數字"
+              />
             </div>
-            <div class="form-group">
-              <label for="source">從何得知本課程？</label>
-              <textarea id="source" name="source" rows="4"></textarea>
+
+            <div class="terms-content-inline">
+              <h4>課程報名條款與免責聲明（請務必詳閱）</h4>
+              <p>
+                本課程為付費知識型教學活動，請學員於報名前詳細閱讀下列條款。勾選同意並完成付款，即表示您已完全理解並接受以下內容：
+              </p>
+
+              <h5>課程性質說明</h5>
+              <p>
+                本課程主題為電商經營與自媒體引流變現相關，課程內容為知識傳授、實務經驗分享與操作思維建構。主辦單位已盡責提供完整課程內容，完成課程即視為已履行服務。
+              </p>
+
+              <h5>成果與應用免責聲明</h5>
+              <p>
+                課程目的為傳授知識與方法，不保證學員能夠取得具體成果、營利或特定轉化效果。
+              </p>
+              <p>
+                成果取決於個人背景、資源、執行力與實際操作狀況，與本課程本身無關。
+              </p>
+              <p>
+                若學員課後無法成功應用內容，或未獲期望成效，皆屬個人執行與學習結果問題，主辦單位不負責任亦不提供補償或個別協助。
+              </p>
+
+              <h5>付款與退費政策</h5>
+              <p>
+                本課程採一次性付費、報名後恕不退費、不轉讓、不保留名額，不論任何理由（包括但不限於個人因素、臨時無法參與等）。
+              </p>
+              <p>
+                課程上完即視為服務結束，不提供後續個別諮詢、教學或技術輔導。
+              </p>
+
+              <h5>社群參與說明</h5>
+              <p>
+                課程結束後，主辦單位可能提供社群平台供學員進行互動與經驗交流，此為非營利性質的延伸服務，並不構成一對一教學或售後輔導義務。
+              </p>
+              <p>
+                社群管理與活動內容由主辦單位視情況安排，不保證特定頻率或回覆承諾。
+              </p>
+
+              <h5>智慧財產權保護</h5>
+              <p>
+                課程中所提供之教材、簡報、影片等內容均為主辦單位【凱迪拉課整合行銷國際有限公司】或講師之智慧財產，未經授權不得翻錄、公開分享、轉賣、改作或散播，違者將依法追究。
+              </p>
+
+              <h5>保密協議條款</h5>
+              <p>
+                本課程內容（包括但不限於文字、圖片、影片、教材、講義、教學方法、討論內容等），以及主辦單位所建立或使用之
+                官方LINE群組、交流社群平台（包括但不限於LINE、Facebook社團、threads、Telegram、WhatsApp、Email通訊、私訊對話）及其他相關溝通管道
+                內之言論與分享內容，均屬【凱迪拉課整合行銷國際有限公司】及講師之智慧財產或受保護資訊，僅供學員本人學習使用及內部交流。
+              </p>
+              <p>
+                學員不得以任何形式（包括但不限於錄音、錄影、截圖、翻拍、轉錄、轉載、轉貼、公開分享、轉售或用於其他商業用途）保存、散布、轉傳或提供予第三人，亦不得將社群內任何交流內容、其他學員分享資訊、教學討論內容對外揭露、引用或散播。
+              </p>
+              <p>
+                違反上述保密條款者，主辦單位有權立即取消學員資格，並依法追究相關法律責任及損害賠償。
+              </p>
+              <p>
+                保密義務自報名付款日起生效，於課程結束後及社群存續期間皆持續有效，不因課程終止或社群解散而解除。
+              </p>
             </div>
-            <button type="submit" class="btn primary-btn">送出報名表</button>
+
+            <button type="submit" class="btn primary-btn">提交報名</button>
+            <p
+              id="formMessage"
+              style="margin-top: 15px; text-align: center"
+            ></p>
           </form>
         </div>
       </div>
@@ -249,62 +509,140 @@
 
     <footer class="footer">
       <div class="container">
-        <p>&copy; 2025 電商實戰訓練營. All rights reserved.</p>
+        <p>&copy; 2025 凱迪拉課. All rights reserved.</p>
         <ul class="footer-links">
-          <li><a href="#">隱私權政策</a></li>
-          <li><a href="#">服務條款</a></li>
-          <li><a href="#">常見問題</a></li>
+          <li><a href="#registration">課程報名條款與免責聲明</a></li>
+          <li><a href="mailto:your-email@example.com">聯絡我們</a></li>
         </ul>
       </div>
     </footer>
 
     <script>
-      // 漢堡選單功能
-      document.addEventListener("DOMContentLoaded", () => {
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("registrationForm");
+        const formMessage = document.getElementById("formMessage");
+        // 注意：請確保這是你的實際 Apps Script 部署 URL
+        const webAppUrl =
+          "https://script.google.com/macros/s/AKfycbyUezpBQop_ugaX1f7ecYwRqW2098E-92-AaZCstowXRJcBRUvQN0BqIAjJ44qjFyRy/exec";
+
+        // LINE 加入按鈕的 HTML 程式碼
+        const lineButtonHtml = `
+                <p style="margin-top: 20px; font-size: 1.1em; color: #007bff; font-weight: bold;">
+                    恭喜您報名成功！請點擊下方按鈕加入「凱迪拉課」官方 LINE 帳號，以便後續聯繫與課程通知。
+                </p>
+                <div style="margin-top: 15px;">
+                    <a href="https://lin.ee/G3He7n0" target="_blank" style="display: inline-block;">
+                        <img src="https://scdn.line-apps.com/n/line_add_friends/btn/zh-Hant.png" alt="加入好友" height="42" border="0">
+                    </a>
+                </div>
+            `;
+
+        // 漢堡選單的 JavaScript 邏輯
         const hamburgerMenu = document.querySelector(".hamburger-menu");
         const navLinks = document.querySelector(".nav-links");
-        const dropdowns = document.querySelectorAll(".dropdown");
 
-        hamburgerMenu.addEventListener("click", () => {
-          navLinks.classList.toggle("active");
-          // 當漢堡選單打開時，關閉所有下拉選單
-          dropdowns.forEach((dropdown) => {
-            dropdown.classList.remove("active");
-          });
+        hamburgerMenu.addEventListener("click", function () {
+          navLinks.classList.toggle("active"); // 切換 'active' class
         });
 
-        // 處理下拉選單點擊 (手機版)
-        dropdowns.forEach((dropdown) => {
-          const dropbtn = dropdown.querySelector(".dropbtn");
-          dropbtn.addEventListener("click", (event) => {
-            if (window.innerWidth <= 768) {
-              // 僅在手機版觸發
-              event.preventDefault(); // 阻止默認連結行為
-              dropdown.classList.toggle("active"); // 切換 active 類別來顯示/隱藏
-            }
-          });
-        });
-
-        // 點擊導覽列連結後關閉漢堡選單
-        navLinks.querySelectorAll("a:not(.dropbtn)").forEach((link) => {
-          link.addEventListener("click", () => {
+        // 當點擊導覽列中的連結時，關閉漢堡選單
+        navLinks.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", function () {
             if (navLinks.classList.contains("active")) {
               navLinks.classList.remove("active");
             }
           });
         });
 
-        // 點擊非選單區域關閉漢堡選單和下拉選單
-        document.addEventListener("click", (event) => {
-          if (
-            !navbar.contains(event.target) &&
-            !hamburgerMenu.contains(event.target)
-          ) {
-            navLinks.classList.remove("active");
-            dropdowns.forEach((dropdown) => {
-              dropdown.classList.remove("active");
-            });
+        // 表單提交邏輯
+        form.addEventListener("submit", function (e) {
+          e.preventDefault(); // 阻止表單預設提交行為
+
+          formMessage.innerHTML = "提交中..."; // 使用 innerHTML 清空並顯示文字
+          formMessage.style.color = "#007bff";
+
+          const formData = new FormData(form);
+          const data = {};
+          for (let [key, value] of formData.entries()) {
+            // 對於多選框，Apps Script 會自動處理，這裡確保未選中的不會傳送 '是'
+            if (key.startsWith("bottleneck_") || key.startsWith("interest_")) {
+              data[key] = value;
+            } else {
+              data[key] = value;
+            }
           }
+
+          // 確保所有複選框的 key 都存在，即使未選中 (值為空字串)
+          const allBottlenecks = [
+            "營業額難以提高",
+            "利潤不足",
+            "人員培養困難",
+            "稅務問題",
+            "資金問題",
+            "自有流量取得困難",
+            "採購進貨相關問題",
+            "其他",
+          ];
+          allBottlenecks.forEach((problem) => {
+            const key = "bottleneck_" + problem.replace(/[\s\/&]/g, "");
+            if (!data[key]) {
+              data[key] = ""; // 如果未選中，設置為空字串
+            }
+          });
+
+          const allInterests = [
+            "短影音定位及起號",
+            "短影音矩陣切片TK投流",
+            "蝦皮電商經營技巧",
+            "物流渠道集運代理",
+            "大陸電話卡及銀行卡開戶",
+          ];
+          allInterests.forEach((interest) => {
+            const key = "interest_" + interest.replace(/[\s\/&]/g, "");
+            if (!data[key]) {
+              data[key] = ""; // 如果未選中，設置為空字串
+            }
+          });
+
+          fetch(webAppUrl, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: new URLSearchParams(data).toString(),
+            mode: "cors",
+          })
+            .then((response) => {
+              if (!response.ok) {
+                return response.text().then((text) => {
+                  throw new Error(text);
+                });
+              }
+              return response.json();
+            })
+            .then((result) => {
+              if (result.success) {
+                // 報名成功後，清空表單並顯示 LINE 按鈕
+                form.reset(); // 重置表單
+                formMessage.innerHTML = lineButtonHtml; // 顯示 LINE 按鈕及成功訊息
+                formMessage.style.color = "green"; // 這裡的顏色設定可能被 LINE 按鈕的內容覆蓋
+                // 你可以考慮隱藏整個表單，只顯示成功訊息和按鈕
+                form.style.display = "none";
+                document.querySelector(".custom-form-wrapper").innerHTML =
+                  formMessage.innerHTML; // 將內容直接寫入 wrapper
+                document.querySelector(".custom-form-wrapper").style.textAlign =
+                  "center"; // 讓按鈕居中
+              } else {
+                formMessage.textContent = result.message;
+                formMessage.style.color = "red";
+              }
+            })
+            .catch((error) => {
+              console.error("提交錯誤:", error);
+              formMessage.textContent =
+                "提交失敗，請檢查網路或聯繫客服。錯誤詳情: " + error.message;
+              formMessage.style.color = "red";
+            });
         });
       });
     </script>
