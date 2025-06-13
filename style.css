@@ -317,7 +317,7 @@ a:hover {
   height: 180px; /* 圖片大小 */
   border-radius: 50%; /* 圓形圖片 */
   object-fit: cover; /* 確保圖片填充容器並保持比例 */
-  object-position: center 50%; /* 調整圖片顯示位置：水平居中，垂直向下偏移 30% */
+  object-position: center 120%; /* 調整圖片顯示位置：水平居中，垂直向下偏移 30% */
   margin-bottom: 20px;
   border: 5px solid #007bff; /* 邊框顏色 */
   box-shadow: 0 0 15px rgba(0, 123, 255, 0.3); /* 邊框陰影 */
