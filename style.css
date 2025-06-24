@@ -1,14 +1,38 @@
 /* style.css */
 
+/* CSS 變數 */
+:root {
+  --primary-color: #007bff;
+  --primary-hover-color: #0056b3;
+  --secondary-color: #2c3e50;
+  --text-color: #333;
+  --light-text-color: #555;
+  --lighter-text-color: #666;
+  --light-bg: #f4f7fa;
+  --white-bg: #ffffff;
+  --gray-bg: #f9f9f9;
+  --blue-highlight-bg: #e6f2ff;
+  --blue-highlight-hover-bg: #d1e7ff;
+  --error-color: #dc3545;
+  --border-color: #ccc;
+  --light-border-color: #eee;
+  --radius-small: 5px;
+  --radius-medium: 8px;
+  --radius-large: 10px;
+  --shadow-light: 0 2px 5px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 5px 15px rgba(0, 0, 0, 0.08);
+  --shadow-strong: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
 /* 基本設定 */
 body {
   font-family: "Noto Sans TC", sans-serif; /* 使用思源黑體，支援中文 */
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: #333;
+  color: var(--text-color);
   line-height: 1.6;
-  background-color: #f4f7fa;
+  background-color: var(--light-bg);
 }
 
 .container {
@@ -24,7 +48,7 @@ h4,
 h5,
 h6 {
   font-family: "Noto Sans TC", sans-serif;
-  color: #2c3e50;
+  color: var(--secondary-color);
   margin-top: 0;
 }
 
@@ -33,7 +57,7 @@ p {
 }
 
 a {
-  color: #007bff;
+  color: var(--primary-color);
   text-decoration: none;
 }
 
@@ -44,7 +68,7 @@ a:hover {
 .btn {
   display: inline-block;
   padding: 12px 25px;
-  border-radius: 5px;
+  border-radius: var(--radius-small);
   text-align: center;
   text-decoration: none;
   transition: background-color 0.3s ease;
@@ -53,20 +77,20 @@ a:hover {
 }
 
 .primary-btn {
-  background-color: #007bff;
+  background-color: var(--primary-color);
   color: white;
   border: none;
 }
 
 .primary-btn:hover {
-  background-color: #0056b3;
+  background-color: var(--primary-hover-color);
 }
 
 /* 導覽列 */
 .navbar {
-  background-color: #ffffff;
+  background-color: var(--white-bg);
   padding: 15px 0;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-light);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -84,7 +108,7 @@ a:hover {
 }
 
 .navbar .logo a {
-  color: #2c3e50;
+  color: var(--secondary-color);
   text-decoration: none;
   font-weight: bold;
 }
@@ -102,7 +126,7 @@ a:hover {
 }
 
 .navbar .nav-links a {
-  color: #555;
+  color: var(--light-text-color);
   font-weight: 500;
   transition: color 0.3s ease;
   padding: 5px 0; /* 增加點擊區域 */
@@ -110,18 +134,18 @@ a:hover {
 }
 
 .navbar .nav-links a:hover {
-  color: #007bff;
+  color: var(--primary-color);
 }
 
 /* 導覽列下拉選單樣式 */
 .dropdown-content {
   display: none; /* 預設隱藏 */
   position: absolute;
-  background-color: #f9f9f9;
+  background-color: var(--gray-bg);
   min-width: 180px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
-  border-radius: 5px;
+  border-radius: var(--radius-small);
   padding: 10px 0;
   left: 50%; /* 居中對齊主菜單項 */
   transform: translateX(-50%); /* 確保真正的居中 */
@@ -140,7 +164,7 @@ a:hover {
 
 .dropdown-content a:hover {
   background-color: #f1f1f1;
-  color: #007bff;
+  color: var(--primary-color);
 }
 
 .dropdown:hover .dropdown-content {
@@ -176,7 +200,7 @@ a:hover {
   display: block;
   width: 100%;
   height: 3px;
-  background-color: #333;
+  background-color: var(--text-color);
   border-radius: 3px;
   transition: all 0.3s ease-in-out;
 }
@@ -245,13 +269,13 @@ a:hover {
   transform: translateX(-50%);
   width: 60px;
   height: 4px;
-  background-color: #007bff;
+  background-color: var(--primary-color);
   border-radius: 2px;
 }
 
 /* About Section */
 .about-section {
-  background-color: #ffffff;
+  background-color: var(--white-bg);
 }
 
 .content-grid {
@@ -262,10 +286,10 @@ a:hover {
 }
 
 .content-item {
-  background-color: #f9f9f9;
+  background-color: var(--gray-bg);
   padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-medium);
   transition: transform 0.3s ease;
 }
 
@@ -274,19 +298,19 @@ a:hover {
 }
 
 .content-item h4 {
-  color: #007bff;
+  color: var(--primary-color);
   font-size: 1.5em;
   margin-bottom: 15px;
 }
 
 .content-item p {
   font-size: 1.05em;
-  color: #666;
+  color: var(--lighter-text-color);
 }
 
 /* 講師介紹區塊樣式 */
 .speakers-section {
-  background-color: #f4f7fa; /* 淺灰色背景 */
+  background-color: var(--light-bg); /* 淺灰色背景 */
 }
 
 .speaker-profile-grid {
@@ -298,10 +322,10 @@ a:hover {
 }
 
 .speaker-profile-card {
-  background-color: #ffffff;
+  background-color: var(--white-bg);
   padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-medium);
   text-align: center; /* 內容居中 */
   transition: transform 0.3s ease;
   max-width: 400px; /* 限制卡片最大寬度 */
@@ -319,36 +343,36 @@ a:hover {
   object-fit: cover; /* 確保圖片填充容器並保持比例 */
   object-position: center 10%; /* 講師照片調整為 55% */
   margin-bottom: 20px;
-  border: 5px solid #007bff; /* 邊框顏色 */
+  border: 5px solid var(--primary-color); /* 邊框顏色 */
   box-shadow: 0 0 15px rgba(0, 123, 255, 0.3); /* 邊框陰影 */
 }
 
 .speaker-profile-card h4 {
-  color: #2c3e50;
+  color: var(--secondary-color);
   font-size: 1.8em;
   margin-bottom: 10px;
 }
 
 .speaker-profile-card p {
-  color: #555;
+  color: var(--light-text-color);
   font-size: 1.05em;
   line-height: 1.7;
 }
 
 /* Video Section */
 .video-section {
-  background-color: #ffffff; /* 調整背景色，與講師介紹區塊錯開 */
+  background-color: var(--white-bg); /* 調整背景色，與講師介紹區塊錯開 */
 }
 
 .video-wrapper {
   width: 375px; /* 例如 iPhone X 的寬度，你可以調整這個數值 */
   max-width: 90%; /* 確保在小螢幕上不會超出 */
-  padding-top: 177.77%;
+  padding-top: 177.77%; /* 針對 9:16 影片比例 */
   position: relative;
   margin: 0 auto 30px auto;
-  background-color: #f9f9f9; /* 調整背景色 */
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background-color: var(--gray-bg); /* 調整背景色 */
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-medium);
   overflow: hidden;
 }
 
@@ -378,7 +402,7 @@ a:hover {
 
 /* 課程大綱區塊樣式 */
 .course-outline-section {
-  background-color: #f4f7fa; /* 調整背景色，與影片區塊錯開 */
+  background-color: var(--light-bg); /* 調整背景色，與影片區塊錯開 */
 }
 
 .outline-grid {
@@ -390,10 +414,10 @@ a:hover {
 }
 
 .outline-speaker {
-  background-color: #ffffff; /* 調整背景色 */
+  background-color: var(--white-bg); /* 調整背景色 */
   padding: 35px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-medium);
   transition: transform 0.3s ease;
 }
 
@@ -402,7 +426,7 @@ a:hover {
 }
 
 .outline-speaker h4 {
-  color: #007bff;
+  color: var(--primary-color);
   font-size: 1.8em;
   margin-bottom: 25px;
   text-align: center;
@@ -415,10 +439,10 @@ a:hover {
 }
 
 .outline-speaker ul li {
-  background-color: #e6f2ff;
+  background-color: var(--blue-highlight-bg);
   padding: 12px 15px;
   margin-bottom: 10px;
-  border-radius: 5px;
+  border-radius: var(--radius-small);
   font-size: 1.05em;
   color: #444;
   transition: background-color 0.2s ease;
@@ -429,74 +453,25 @@ a:hover {
 }
 
 .outline-speaker ul li:hover {
-  background-color: #d1e7ff;
-}
-
-/* 課程資訊區塊樣式 (新增的樣式) */
-.course-info-section {
-  background-color: #ffffff; /* 白色背景 */
-}
-
-.course-details {
-  max-width: 700px;
-  margin: 0 auto;
-  text-align: left;
-  background-color: #f9f9f9;
-  padding: 35px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-}
-
-.course-detail-item {
-  margin-bottom: 20px;
-}
-
-.course-detail-item h4 {
-  color: #007bff;
-  font-size: 1.3em;
-  margin-bottom: 8px;
-  display: inline-block; /* 讓標題和內容同行 */
-  margin-right: 10px;
-}
-
-.course-detail-item p {
-  display: inline-block; /* 讓標題和內容同行 */
-  font-size: 1.1em;
-  color: #555;
-  margin-bottom: 0;
-}
-
-.course-detail-item .bank-info {
-  display: block; /* 銀行資訊獨佔一行 */
-  margin-left: 20px; /* 縮排 */
-  font-size: 1em;
-  color: #666;
-  margin-bottom: 5px;
-}
-
-.course-detail-item .important {
-  color: #dc3545; /* 紅色強調 */
-  font-weight: bold;
-  font-size: 1.05em;
-  margin-top: 10px;
+  background-color: var(--blue-highlight-hover-bg);
 }
 
 /* Registration Section (表單區塊) */
 .registration-section {
-  background-color: #f4f7fa; /* 調整背景色 */
+  background-color: var(--light-bg); /* 調整背景色 */
 }
 
 .custom-form-wrapper {
   max-width: 600px;
   margin: 0 auto;
-  background-color: #ffffff; /* 表單背景改為白色 */
+  background-color: var(--white-bg); /* 表單背景改為白色 */
   padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-strong);
   text-align: left;
 }
 
-/* 表單組件樣式（已在 HTML 內嵌樣式中定義，此處為補充或覆蓋） */
+/* 表單組件樣式 */
 .form-group {
   margin-bottom: 20px;
 }
@@ -504,8 +479,21 @@ a:hover {
   display: block;
   margin-bottom: 8px;
   font-weight: bold;
-  color: #333;
+  color: var(--text-color);
+  position: relative; /* 用於必填星號 */
 }
+/* 必填星號樣式 */
+.form-group label::after {
+  content: " *"; /* 添加星號內容 */
+  color: var(--error-color); /* 星號顏色 */
+  font-weight: normal; /* 保持星號不加粗 */
+}
+/* 不需要星號的 label 移除偽元素 */
+.form-group label[for="referrer"]::after,
+.form-group label[for="agreeTerms"]::after {
+  content: none;
+}
+
 .form-group input[type="text"],
 .form-group input[type="email"],
 .form-group input[type="tel"],
@@ -513,20 +501,157 @@ a:hover {
 .form-group textarea {
   width: 100%;
   padding: 12px 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-small);
   font-size: 1em;
   box-sizing: border-box;
+}
+.form-group textarea {
+  resize: vertical; /* 允許垂直調整大小 */
+  min-height: 80px;
+}
+
+.checkbox-group,
+.radio-group {
+  margin-bottom: 20px;
+  border: 1px solid var(--light-border-color);
+  padding: 15px;
+  border-radius: var(--radius-medium);
+  background-color: #fcfcfc;
+}
+.checkbox-group h4,
+.radio-group h4 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: var(--primary-color);
+  font-size: 1.1em;
+  position: relative; /* 用於必填星號 */
+}
+/* 複選/單選群組標題的必填星號 */
+.checkbox-group h4::after,
+.radio-group h4::after {
+  content: " *";
+  color: var(--error-color);
+  font-weight: normal;
+}
+
+.checkbox-group label,
+.radio-group label {
+  display: block; /* 讓每個選項獨佔一行 */
+  margin-bottom: 10px;
+  font-weight: normal;
+  cursor: pointer; /* 讓鼠標變成手型 */
+}
+.checkbox-group input[type="checkbox"],
+.radio-group input[type="radio"] {
+  margin-right: 10px;
+  vertical-align: middle;
+  transform: scale(1.1); /* 讓複選框/單選框稍微大一點 */
 }
 
 /* 新增的紅色文字樣式 */
 .red-text {
-  color: #dc3545; /* 標準紅色，你也可以選擇其他紅色調 */
+  color: var(--error-color);
+}
+.required-star {
+  /* 獨立出來給不需要 label::after 的地方用 */
+  color: var(--error-color);
+}
+
+/* 內嵌於表單的課程條款樣式 */
+.registration-section .terms-content-inline {
+  background-color: var(--gray-bg); /* 淺灰背景 */
+  border: 1px solid #e0e0e0; /* 輕微邊框 */
+  padding: 30px;
+  margin-top: 30px; /* 與表單內容間隔 */
+  border-radius: var(--radius-medium); /* 圓角 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* 輕微陰影 */
+  max-width: 700px; /* 限制寬度，提高可讀性 */
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left; /* 條款內容左對齊 */
+}
+
+.registration-section .terms-content-inline .terms-toggle {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 15px; /* 調整為更緊湊 */
+  font-size: 1.6em;
+  cursor: pointer; /* 表示可點擊 */
+  position: relative;
+  padding-right: 25px; /* 為箭頭留出空間 */
+}
+
+/* 條款展開/收合的箭頭 */
+.registration-section .terms-content-inline .terms-toggle::after {
+  content: "▼"; /* 向下的箭頭 */
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.7em;
+  transition: transform 0.3s ease;
+}
+
+.registration-section
+  .terms-content-inline
+  .terms-toggle[aria-expanded="true"]::after {
+  content: "▲"; /* 向上箭頭 */
+}
+
+/* 條款內容的收合和展開狀態 */
+.terms-collapsed {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+  opacity: 0;
+}
+
+.terms-expanded {
+  max-height: 1000px; /* 足夠大的值以確保內容完全展開 */
+  opacity: 1;
+  transition: max-height 0.5s ease-in, opacity 0.5s ease-in;
+}
+
+.registration-section .terms-content-inline h5 {
+  font-size: 1.2em;
+  color: var(--text-color);
+  margin-top: 25px;
+  margin-bottom: 10px;
+  border-bottom: 1px dashed var(--border-color); /* 虛線分隔 */
+  padding-bottom: 5px;
+}
+
+.registration-section .terms-content-inline p {
+  font-size: 0.95em;
+  line-height: 1.7;
+  color: var(--light-text-color);
+  margin-bottom: 10px;
+}
+
+/* 同意條款的複選框群組樣式 */
+.terms-agree-group {
+  background-color: transparent; /* 不要有背景色 */
+  border: none; /* 移除邊框 */
+  padding: 0; /* 移除內邊距 */
+  margin-top: 25px; /* 調整間距 */
+  text-align: center; /* 文字居中 */
+}
+.terms-agree-group label {
+  display: inline-flex; /* 讓文字和 checkbox 可以在一行 */
+  align-items: center;
+  font-size: 0.95em;
+  font-weight: bold;
+  color: var(--text-color);
+}
+.terms-agree-group input[type="checkbox"] {
+  transform: scale(1.2); /* 稍微放大 checkbox */
+  margin-right: 8px; /* 調整間距 */
 }
 
 /* 頁尾 */
 .footer {
-  background-color: #2c3e50;
+  background-color: var(--secondary-color);
   color: white;
   padding: 40px 0;
   text-align: center;
@@ -552,7 +677,7 @@ a:hover {
 }
 
 .footer .footer-links a:hover {
-  color: #007bff;
+  color: var(--primary-color);
 }
 
 /* RWD 調整 */
@@ -561,11 +686,11 @@ a:hover {
     display: none;
     flex-direction: column;
     width: 100%;
-    background-color: #ffffff;
+    background-color: var(--white-bg);
     position: absolute;
     top: 60px;
     left: 0;
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-light);
   }
 
   .navbar .nav-links.active {
@@ -575,7 +700,7 @@ a:hover {
   .navbar .nav-links li {
     margin: 0;
     padding: 15px 20px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--light-border-color);
   }
 
   .navbar .nav-links li:last-child {
@@ -586,11 +711,11 @@ a:hover {
   .dropdown .dropdown-content {
     position: static; /* 取消絕對定位 */
     box-shadow: none;
-    background-color: #fff; /* 與父元素背景一致 */
+    background-color: var(--white-bg); /* 與父元素背景一致 */
     padding: 0;
     min-width: unset;
     transform: none;
-    border-top: 1px solid #eee; /* 添加分隔線 */
+    border-top: 1px solid var(--light-border-color); /* 添加分隔線 */
     margin-top: 5px;
   }
   .dropdown-content a {
@@ -644,7 +769,7 @@ a:hover {
   /* RWD 調整：在小螢幕上，影片容器可以更小 */
   .video-wrapper {
     width: 95%;
-    padding-top: 160%;
+    padding-top: 177.77%; /* 保持 9:16 比例 */
   }
 
   /* 課程大綱 RWD 調整 */
