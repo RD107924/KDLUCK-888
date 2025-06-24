@@ -222,16 +222,63 @@
                 aria-required="true"
               />
             </div>
+
             <div class="form-group">
-              <label for="industryTitle">產業別/職稱：</label>
+              <label for="industry">產業別：</label>
               <input
                 type="text"
-                id="industryTitle"
-                name="industryTitle"
+                id="industry"
+                name="industry"
                 required
                 aria-required="true"
-                placeholder="例如：電商經營者 / 行銷企劃"
+                placeholder="例如：電商、餐飲、科技"
               />
+            </div>
+
+            <div class="form-group">
+              <label for="jobTitle">職稱：</label>
+              <input
+                type="text"
+                id="jobTitle"
+                name="jobTitle"
+                required
+                aria-required="true"
+                placeholder="例如：經營者、行銷企劃、業務"
+              />
+            </div>
+
+            <div class="radio-group">
+              <h4>產業規模 (年營業額)：<span class="required-star">*</span></h4>
+              <label>
+                <input
+                  type="radio"
+                  name="annualRevenue"
+                  value="0~100萬"
+                  required
+                  aria-required="true"
+                />
+                0~100萬
+              </label>
+              <label>
+                <input type="radio" name="annualRevenue" value="100~500萬" />
+                100~500萬
+              </label>
+              <label>
+                <input type="radio" name="annualRevenue" value="500~1000萬" />
+                500~1000萬
+              </label>
+              <label>
+                <input type="radio" name="annualRevenue" value="1000~2000萬" />
+                1000~2000萬
+              </label>
+              <label>
+                <input type="radio" name="annualRevenue" value="2000~5000萬" />
+                2000~5000萬
+              </label>
+              <label>
+                <input type="radio" name="annualRevenue" value="5000萬以上" />
+                5000萬以上
+              </label>
             </div>
 
             <div class="checkbox-group">
@@ -379,10 +426,10 @@
                 <h4>匯款資訊</h4>
                 <p>請將課程費用匯款至以下帳戶：</p>
                 <ul>
-                  <li>銀行：<strong>合作金庫006</strong></li>
-                  <li>帳號：<strong>1531717026356</strong></li>
+                  <li>銀行：<strong>XX 銀行</strong></li>
+                  <li>帳號：<strong>123-4567-890123</strong></li>
                   <li>戶名：<strong>凱迪拉課整合行銷國際有限公司</strong></li>
-                  <li>金額：<strong>NT$ 888</strong></li>
+                  <li>金額：<strong>NT$ 8,888</strong></li>
                 </ul>
                 <p class="important-note">
                   請務必確認匯款資訊正確，並填寫您的匯款末五碼以便核對。
@@ -570,7 +617,12 @@
           const data = {};
           for (let [key, value] of formData.entries()) {
             // 對於多選框，Apps Script 會自動處理，這裡確保未選中的不會傳送 '是'
-            if (key.startsWith("bottleneck_") || key.startsWith("interest_")) {
+            if (
+              key.startsWith("bottleneck_") ||
+              key.startsWith("interest_") ||
+              key.startsWith("annualRevenue")
+            ) {
+              // 新增對 annualRevenue 的處理
               data[key] = value;
             } else {
               data[key] = value;
@@ -608,6 +660,8 @@
               data[key] = ""; // 如果未選中，設置為空字串
             }
           });
+
+          // 由於 radio button 只有一個會被選中，FormData 會自動處理，無需額外遍歷所有選項來設置空字串。
 
           // 移除同意條款的數據，因為它只用於前端驗證
           delete data.agreeTerms;
