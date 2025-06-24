@@ -649,6 +649,48 @@ a:hover {
   margin-right: 8px; /* 調整間距 */
 }
 
+/* 新增的匯款資訊區塊樣式 */
+.payment-info-box {
+  background-color: var(--blue-highlight-bg);
+  border: 1px solid var(--primary-color);
+  border-radius: var(--radius-medium);
+  padding: 20px;
+  margin-bottom: 25px; /* 與下方輸入框的間距 */
+  text-align: left;
+}
+
+.payment-info-box h4 {
+  color: var(--primary-color);
+  font-size: 1.2em;
+  margin-top: 0;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.payment-info-box p {
+  font-size: 0.98em;
+  color: var(--text-color);
+  margin-bottom: 10px;
+}
+
+.payment-info-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 15px 0;
+}
+
+.payment-info-box ul li {
+  margin-bottom: 8px;
+  font-size: 1em;
+  color: var(--text-color);
+}
+
+.payment-info-box .important-note {
+  font-weight: bold;
+  color: var(--error-color); /* 強調重要性 */
+  margin-top: 15px;
+}
+
 /* 頁尾 */
 .footer {
   background-color: var(--secondary-color);
@@ -801,5 +843,14 @@ a:hover {
 
   .footer .footer-links li {
     margin: 5px 0;
+  }
+
+  /* 匯款資訊區塊 RWD 調整 */
+  .payment-info-box {
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+  .payment-info-box h4 {
+    font-size: 1.1em;
   }
 }
